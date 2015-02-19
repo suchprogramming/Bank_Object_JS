@@ -16,7 +16,7 @@ $(document).ready(function() {
     event.preventDefault();
 
     var inputtedName = $("input#account-name").val();
-    var inputtedFirstDeposit = parseFloat($("input#initial-deposit").val());
+    var inputtedFirstDeposit = parseFloat($("input#initial-deposit").val().replace(/,/g, ''));
 
     if (inputtedName === "") {
       $(".error").show();
@@ -29,7 +29,7 @@ $(document).ready(function() {
     if (isNaN(inputtedFirstDeposit) || inputtedFirstDeposit < 0 ) {
       inputtedFirstDeposit = 0
       $(".error").show();
-      $(".error").text("No Negative or String Values as Initial Deposits!");
+      $(".error").text("Enter a Valid Initial Deposit!");
       return false;
     } else {
       $(".error").hide();
@@ -45,14 +45,14 @@ $(document).ready(function() {
     $("input#initial-deposit").val("");
 
     $(".list-group-item.client").last().click(function() {
-      $("h3#client-balance").text("$" + (newClient.balance.toFixed(2)));
+      $("h3#client-balance").text("$" + (newClient.balance.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",")));
     });
 
     $("form#manage-account").submit(function(event) {
       event.preventDefault();
 
-      var inputtedDeposit = parseFloat($("input#deposit-amount").val());
-      var inputtedWithdraw = parseFloat($("input#withdraw-amount").val());
+      var inputtedDeposit = parseFloat($("input#deposit-amount").val().replace(/,/g, ''));
+      var inputtedWithdraw = parseFloat($("input#withdraw-amount").val().replace(/,/g, ''));
 
       newClient.deposit(inputtedDeposit);
       newClient.withdraw(inputtedWithdraw);
@@ -60,7 +60,7 @@ $(document).ready(function() {
       $("input#deposit-amount").val("");
       $("input#withdraw-amount").val("");
 
-      $("h3#client-balance").text("$" + (newClient.balance.toFixed(2)));
+      $("h3#client-balance").text("$" + (newClient.balance.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",")));
     });
   });
 });
