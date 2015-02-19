@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">  <link rel="stylesheet" type="text/css" href="css/styles.css">
+  <script type="text/javascript" src="js/jquery-1.11.2.js"></script>
+  <script type="text/javascript" src="js/scripts.js"></script>
+  <title>Bank</title>
+</head>
+<body>
+  <div class="container">
+    <div class="nav">
+      <h2>Welcome to the Bank</h2>
+      <h4>All Your Monies Are Belong To Us</h4>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="alert alert-danger error" role="alert">
+        <span class="glyphicon glyphicon-exclamation-sign"></span>
+        <span class="sr-only">Error:</span>
+      </div>
+      <div class="col-md-3">
+        <div class="inner-col">
+
+          <h4>Create Account</h4>
+
+          <form id="new-account">
+
+            <div class="form-group">
+              <label type="text" for="account-name">Account Name:</label>
+              <input type="text" id="account-name" class="form-control">
+
+              <label type="text" for="initial-deposit">Initial Deposit:</label>
+              <input type="text" id="initial-deposit" class="form-control">
+            </div>
+
+            <button type= "submit" class="btn btn-info">Create Account</button>
+          </form>
+
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="inner-col">
+          <h4>Use Account</h4>
+
+          <form id="manage-account">
+
+            <div class="form-group">
+              <label type="text" for="deposit-amount">Deposit</label>
+              <input type="text" id="deposit-amount" class="form-control">
+
+              <label type="text" for="withdraw-amount">Withdraw</label>
+              <input type="text" id="withdraw-amount" class="form-control">
+            </div>
+
+            <button type= "submit" class="btn btn-info">Submit</button>
+          </form>
+
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="inner-col">
+
+          <h4>Customer List</h4>
+          <div class="list-group">
+          </div>
+
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="inner-col">
+
+          <h4>Account Balance</h4>
+          <h3 id="client-balance"></h3>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</body>
+</html>
